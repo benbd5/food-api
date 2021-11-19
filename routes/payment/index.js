@@ -23,8 +23,8 @@ router.route('/create-session')
         }),
         mode: 'payment',
         customer_email: formData.email,
-        success_url: 'http://localhost:3000/success',
-        cancel_url: 'http://localhost:3000/cancel'
+        success_url: 'https://desolate-cliffs-31011.herokuapp.com/success',
+        cancel_url: 'https://desolate-cliffs-31011.herokuapp.com/cancel'
       })
 
       return res.send(session)
