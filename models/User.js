@@ -53,4 +53,5 @@ UserSchema.methods.comparePassword = function (password, callback) {
   })
 }
 
-module.exports = mongoose.model('User', UserSchema)
+// La condition en dessous quand on dev car nodemon recharge l'app mais pas tout le temps le modèle
+module.exports = mongoose.models.User || mongoose.model('User', UserSchema)

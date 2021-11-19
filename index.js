@@ -23,7 +23,7 @@ const mongoDbConnectionString =
   `mongodb+srv://userTest:${process.env.PASSWD}${process.env.HOST}/${process.env.DBNAME}?retryWrites=true&w=majority`
 
 mongoose.connect(mongoDbConnectionString, null, error => {
-  if (error) throw Error
+  if (error) throw new Error(error)
 })
 
 // Récupération de la connexion
@@ -47,6 +47,8 @@ app.use('/restaurants', require('./routes/restaurants'))
 app.use('/dishes', require('./routes/dishes'))
 app.use('/auth', require('./routes/users/auth'))
 app.use('/me', require('./routes/users'))
+app.use('/payment', require('./routes/payment'))
+app.use('/order', require('./routes/order'))
 
 app.listen(port, () => {
   console.log(`Ok ça marche http://localhost:${port}`)
